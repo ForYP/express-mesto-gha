@@ -11,7 +11,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect(DB_URL);
-app.use(router);
 
 app.use((req, res, next) => {
   req.user = {
@@ -21,6 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(router);
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });
