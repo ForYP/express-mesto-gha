@@ -3,7 +3,7 @@ const { celebrate, Joi } = require('celebrate');
 const validator = require('validator');
 const { createUser } = require('../controllers/users');
 
-signupRouter.post('/signup', celebrate({
+signupRouter.post('/', celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
