@@ -12,7 +12,7 @@ signupRouter.post('/signup', celebrate({
       return helpers.message('URL указан неправильно');
     }),
     email: Joi.string().required().email(),
-    password: Joi.string().required().min(4),
+    password: Joi.string().required().min(8),
   }).unknown(true),
 }), createUser);
 
