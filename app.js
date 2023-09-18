@@ -15,7 +15,9 @@ app.use(helmet());
 
 mongoose.connect(DB_URL);
 app.use(router);
-
+app.use('*', (req, res) => {
+  res.status(404).send({ message: 'Ошибка 404. Страница не найдена' });
+});
 app.use((err, req, res, next) => {
   const { statusCode = 500, message } = err;
 
