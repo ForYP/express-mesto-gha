@@ -39,7 +39,6 @@ const userSchema = new Schema({
     type: String,
     required: [true, 'Поле ввода должно быть заполнено'],
     select: false,
-    minlength: 8,
   },
 }, { versionKey: false });
 
