@@ -15,6 +15,7 @@ app.use(helmet());
 mongoose.connect(DB_URL);
 app.use('/', require('./routes/index'));
 
+app.use(errors());
 app.use((err, req, res, next) => {
   const { statusCode = 500, message } = err;
 
@@ -27,8 +28,6 @@ app.use((err, req, res, next) => {
     });
   next();
 });
-
-app.use(errors());
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
